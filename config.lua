@@ -94,10 +94,9 @@ Config.TimeOfDayMultiplier = {
 -- Jobs that should NEVER receive speed camera fines
 Config.ExcludedJobs = {
     police = true,
-    ems = true,
-    ambulance = true,   -- some servers use this instead of "ems"
-    sheriff = true,
-    highway = true,
+    ambulance = true,
+    bcso = true,
+    sahp = true,
     -- Add more as needed
 }
 
