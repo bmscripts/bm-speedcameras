@@ -4,7 +4,7 @@
   <img alt="Shows the BM Scripts banner" src="https://i.ibb.co/qLqknnYd/BMScripts-Header.png">
 </picture>
 
-# BM Speed Cameras - QB/QBox Configurable Speed Cameras with Fines and Plate Notifications
+# BM Speed Cameras - QB/QBox Speed Cameras with Fines, Detection Logic, and Plate Notifications
 *A lightweight, configurable, and performance‑friendly speed camera system for FiveM (QBCore/QBox).*
 
 This script adds fully functional speed cameras to your server, complete with configurable speed limits, fines, directional detection, dual‑direction support, blips, props, and clean player notifications.
