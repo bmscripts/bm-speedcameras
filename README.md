@@ -13,16 +13,16 @@ This script adds fully functional speed cameras to your server, complete with co
 
 ## 📌 Features Overview
 
-- 🚨 **Speed Detection** (MPH or KMH)  
-- 🎯 **Directional & Dual‑Direction Cameras**  
-- 💸 **Dynamic Fine System** (base fine, % over limit, multipliers)  
-- 🚫 **Job Exemptions** (police, EMS, etc.)  
-- 📍 **Optional Blips** for each camera  
-- 📸 **Camera Props** with ground alignment  
-- ⚡ **Flash & Sound Effects** when triggered  
-- 🔧 **Debug Mode** for camera placement  
-- 🧾 **Clean Notifications** including the vehicle’s plate  
-- 🧩 **Fully Configurable** through `config.lua`  
+- **Speed Detection** (MPH or KMH)  
+- **Directional & Dual‑Direction Cameras**  
+- **Dynamic Fine System** (base fine, % over limit, multipliers)  
+- **Job Exemptions** (police, EMS, etc.)  
+- **Optional Blips** for each camera  
+- **Camera Props** with ground alignment  
+- **Flash & Sound Effects** when triggered  
+- **Debug Mode** for camera placement  
+- **Clean Notifications** including the vehicle’s plate  
+- **Fully Configurable** through `config.lua`  
 
 ---
 
