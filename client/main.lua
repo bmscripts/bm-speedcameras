@@ -216,10 +216,21 @@ CreateThread(function()
 end)
 
 -- ============================================================
---  Prop Spawning (Camera Models)
+--  Prop Spawning (Camera Models) — FIXED VERSION
 -- ============================================================
 
 CreateThread(function()
+    -- Wait for player to fully load into the world
+    while not LocalPlayer.state.isLoggedIn do
+        Wait(500)
+    end
+
+    -- Extra safety: wait for ped to exist
+    while not DoesEntityExist(PlayerPedId()) do
+        Wait(200)
+    end
+
+    -- Now spawn props safely
     for i, cam in ipairs(Config.SpeedCameras) do
         local model = cam.model or Config.DefaultCameraModel
         if model then

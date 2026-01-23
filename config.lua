@@ -12,7 +12,7 @@ Config.UseMPH = true                        -- true = MPH, false = KMH
 --  Notification Settings
 -- ============================================================
 
-Config.NotifyPosition = 'center-right'      -- Notification position on screen
+Config.NotifyPosition = 'top-right'         -- Notification position on screen
 Config.NotifyDuration = 10000               -- Duration in ms (10000 = 10 seconds)
 
 -- ============================================================
@@ -42,7 +42,7 @@ Config.DefaultPaymentType = 'bank'          -- 'cash' or 'bank'
 -- ============================================================
 
 Config.DefaultCameraModel = nil             -- Default prop model (nil = no prop)
-                                            -- Examples: prop_cctv_pole_01a, prop_cctv_pole_02, etc.
+                                            -- Examples: 'prop_cctv_pole_01a', 'prop_cctv_pole_02', 'prop_cctv_pole_03', 'prop_cctv_pole_04', etc.
 
 -- ============================================================
 --  Flash & Sound Effects
@@ -64,13 +64,13 @@ Config.FineMultiplier = 1.0                 -- Global multiplier (1.0 = normal, 
 Config.VehicleClassMultiplier = {
     [0]  = 1.0,                             -- Compacts
     [1]  = 1.0,                             -- Sedans
-    [2]  = 1.2,                             -- SUVs
+    [2]  = 1.0,                             -- SUVs
     [3]  = 1.0,                             -- Coupes
     [4]  = 1.0,                             -- Muscle
     [5]  = 1.0,                             -- Sports Classics
     [6]  = 1.0,                             -- Sports
     [7]  = 1.0,                             -- Super
-    [8]  = 0.7,                             -- Motorcycles
+    [8]  = 1.0,                             -- Motorcycles
     [9]  = 1.0,                             -- Off-road
     [10] = 1.0,                             -- Industrial
     [11] = 1.0,                             -- Utility
@@ -80,9 +80,9 @@ Config.VehicleClassMultiplier = {
     [15] = 1.0,                             -- Helicopters
     [16] = 1.0,                             -- Planes
     [17] = 1.0,                             -- Service
-    [18] = 1.5,                             -- Emergency
+    [18] = 1.0,                             -- Emergency
     [19] = 1.0,                             -- Military
-    [20] = 1.3,                             -- Commercial
+    [20] = 1.0,                             -- Commercial
 }
 
 -- Time-of-day multipliers
@@ -135,7 +135,7 @@ Config.SpeedCameras = {
         baseFine = 200,                             -- Base fine
         finePerPercent = 5,                         -- Fine per % over limit
         maxFine = 1000,                             -- Maximum fine
-        paymentType = 'cash',                       -- Payment method
+        paymentType = 'bank',                       -- Payment method
 
         -- Blip settings
         blip = {
@@ -143,7 +143,7 @@ Config.SpeedCameras = {
             sprite = 744,                           -- Icon
             colour = 0,                             -- Colour
             scale = 0.6,                            -- Size
-            label = "Speed Camera (Example)",       -- Name
+            label = "Speed Camera",                 -- Name
             shortRange = true,                      -- Only show when nearby
             shortRangeDistance = 500.0              -- Distance threshold
         }
