@@ -216,7 +216,7 @@ CreateThread(function()
 end)
 
 -- ============================================================
---  Prop Spawning (Camera Models) — FIXED VERSION
+--  Dynamic Prop Streaming (Spawn Near, Delete Far)
 -- ============================================================
 
 CreateThread(function()
@@ -230,29 +230,58 @@ CreateThread(function()
         Wait(200)
     end
 
-    -- Now spawn props safely
-    for i, cam in ipairs(Config.SpeedCameras) do
-        local model = cam.model or Config.DefaultCameraModel
-        if model then
-            local hash = joaat(model)
+    local spawnDist = 150.0   -- spawn props when player is within this distance
+    local deleteDist = 200.0  -- delete props when player is beyond this distance
 
-            RequestModel(hash)
-            while not HasModelLoaded(hash) do
-                Wait(10)
+    while true do
+        Wait(1000)
+
+        local ped = PlayerPedId()
+        local pCoords = GetEntityCoords(ped)
+
+        for i, cam in ipairs(Config.SpeedCameras) do
+            local camPos = vector3(cam.coords.x, cam.coords.y, cam.coords.z)
+            local dist = #(pCoords - camPos)
+
+            -- ============================
+            -- Spawn prop when close enough
+            -- ============================
+            if dist <= spawnDist then
+                if not spawnedProps[i] then
+                    local model = cam.model or Config.DefaultCameraModel
+                    if model then
+                        local hash = joaat(model)
+
+                        RequestModel(hash)
+                        while not HasModelLoaded(hash) do
+                            Wait(10)
+                        end
+
+                        local x, y, z = cam.coords.x, cam.coords.y, cam.coords.z
+                        local groundZ = getGroundZ(x, y, z)
+
+                        local offset = cam.zOffset or Config.PropZOffset or 0.0
+                        local finalZ = (groundZ or z) + offset
+
+                        local obj = CreateObject(hash, x, y, finalZ, false, false, false)
+
+                        SetEntityHeading(obj, cam.heading or 0.0)
+                        FreezeEntityPosition(obj, true)
+
+                        spawnedProps[i] = obj
+                    end
+                end
             end
 
-            local x, y, z = cam.coords.x, cam.coords.y, cam.coords.z
-            local groundZ = getGroundZ(x, y, z)
-
-            local offset = cam.zOffset or Config.PropZOffset or 0.0
-            local finalZ = (groundZ or z) + offset
-
-            local obj = CreateObject(hash, x, y, finalZ, false, false, false)
-
-            SetEntityHeading(obj, cam.heading or 0.0)
-            FreezeEntityPosition(obj, true)
-
-            spawnedProps[i] = obj
+            -- ============================
+            -- Delete prop when too far away
+            -- ============================
+            if dist >= deleteDist then
+                if spawnedProps[i] and DoesEntityExist(spawnedProps[i]) then
+                    DeleteObject(spawnedProps[i])
+                    spawnedProps[i] = nil
+                end
+            end
         end
     end
 end)
