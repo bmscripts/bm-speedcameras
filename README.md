@@ -240,6 +240,6 @@ Plate: EXAMPLE1
 - Verify camera coordinates and radius values
 - Ensure your blip settings are valid
 
-# 📄 License
+## 📄 License
 
 **Attribution is Required**. Do not redistribute or sell without explicit permission. Keep all author(s) credits intact.
