@@ -240,11 +240,6 @@ Plate: EXAMPLE1
 - Verify camera coordinates and radius values
 - Ensure your blip settings are valid
 
-# License
+# 📄 License
 
-You may use and edit this script for personal or server use.
-
-If you reupload, redistribute, or share this script in any form, **attribution is required**.  
-You must credit the original author: **BM Scripts**.
-
-You may not claim this script as your own.
+**Attribution is Required**. You must credit the original author(s).
