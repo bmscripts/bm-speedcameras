@@ -242,4 +242,4 @@ Plate: EXAMPLE1
 
 # 📄 License
 
-**Attribution is Required**. You must credit the original author(s).
+**Attribution is Required**. Do not redistribute or sell without explicit permission. Keep all author(s) credits intact.
